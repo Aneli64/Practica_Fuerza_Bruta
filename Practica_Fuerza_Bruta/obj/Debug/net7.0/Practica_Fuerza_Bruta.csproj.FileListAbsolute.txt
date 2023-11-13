@@ -1,0 +1,14 @@
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/bin/Debug/net7.0/Practica_Fuerza_Bruta
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/bin/Debug/net7.0/Practica_Fuerza_Bruta.deps.json
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/bin/Debug/net7.0/Practica_Fuerza_Bruta.runtimeconfig.json
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/bin/Debug/net7.0/Practica_Fuerza_Bruta.dll
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/bin/Debug/net7.0/Practica_Fuerza_Bruta.pdb
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/obj/Debug/net7.0/Practica_Fuerza_Bruta.GeneratedMSBuildEditorConfig.editorconfig
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/obj/Debug/net7.0/Practica_Fuerza_Bruta.AssemblyInfoInputs.cache
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/obj/Debug/net7.0/Practica_Fuerza_Bruta.AssemblyInfo.cs
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/obj/Debug/net7.0/Practica_Fuerza_Bruta.csproj.CoreCompileInputs.cache
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/obj/Debug/net7.0/Practica_Fuerza_Bruta.dll
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/obj/Debug/net7.0/refint/Practica_Fuerza_Bruta.dll
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/obj/Debug/net7.0/Practica_Fuerza_Bruta.pdb
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/obj/Debug/net7.0/Practica_Fuerza_Bruta.genruntimeconfig.cache
+/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/obj/Debug/net7.0/ref/Practica_Fuerza_Bruta.dll
