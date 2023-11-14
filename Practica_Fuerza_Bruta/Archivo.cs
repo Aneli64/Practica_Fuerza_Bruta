@@ -5,17 +5,38 @@ using System.IO;
 
 public class Archivo
 {
-    private static string path = "/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/2151220-passwords.txt";
-    private static string contenido = File.ReadAllText(path);
-    public String ReadCont() => contenido;
-
-    public String h()
+    private string path;
+    public Archivo(string path)
     {
-        for (int i = 0; i < contenido.Length; i++)
-        {
-            
+        this.path = path;
+    } 
+    private string ObtPass(string passIN)
+    {
+        string passEnc = "";
+        int contLinea = 1;
+        StreamReader reader = new StreamReader(path);
+        while (!reader.EndOfStream) {
+            if (passIN == reader.ReadLine())
+            {
+                passEnc = $"Password {passIN} encontrada en línea -> {contLinea}";
+                break;
+            }
+            passEnc = $"Password {passIN} no encontrada";
+            contLinea++;
         }
-        return "";
+        return passEnc;
+    }
+    
+    public static void Main(string[] args)
+    {
+        //Variables File necesarias y contraseña a encontrar en dicho File.
+        Archivo file = new Archivo("/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/2151220-passwords.txt");
+        String contrParaAdivinar = "! love you";
+        
+        //Leemos el archivo linea a linea con StreamReader,
+        //y obtenemos la contraseña y la linea donde se encuentra.
+        Console.WriteLine(file.ObtPass(contrParaAdivinar));
+        
     }
     
 }
