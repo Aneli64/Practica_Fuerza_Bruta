@@ -26,12 +26,18 @@ public class Archivo
         }
         return passEnc;
     }
+
+    public void encriptar(string passIN)
+    {
+        
+    }
     
     public static void Main(string[] args)
     {
         //Variables File necesarias y contraseña a encontrar en dicho File.
         Archivo file = new Archivo("/home/aneli/RiderProjects/Practica_Fuerza_Bruta/Practica_Fuerza_Bruta/2151220-passwords.txt");
-        String contrParaAdivinar = "! love you";
+        string contrParaAdivinar = "0350292";
+        string contrEncrip = "";
         
         //Leemos el archivo linea a linea con StreamReader,
         //y obtenemos la contraseña y la linea donde se encuentra.
