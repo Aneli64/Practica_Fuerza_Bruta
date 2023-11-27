@@ -14,24 +14,54 @@ public class Archivo
     {
         this.path = path;
     }
+
     private string ObtPass(string passIN)
     {
+        //variables necesarias para usar nuestros hilos
         string passEnc = "";
-        int contLinea = 1;
-        StreamReader reader = new StreamReader(path);
-        while (!reader.EndOfStream)
-        {
-            if (encriptar(passIN) == encriptar(reader.ReadLine()))
-            {
-                passEnc = $"Password {passIN} encontrada en línea -> {contLinea}";
-                break;
-            }
+        int numHilos = 4;
+        Thread[] threads = new Thread[numHilos];
+        AutoResetEvent[] nuevoHilo = new AutoResetEvent[numHilos];
+        int numLineasFile = File.ReadLines(path).Count();
+        var step = numLineasFile / numHilos;
 
-            passEnc = $"Password {passIN} no encontrada";
-            contLinea++;
+        //iteramos en el numero de hilos
+        for (int i = 0; i < numHilos; i++)
+        {
+            //lo definimos a false para comenzar de nuevo
+            nuevoHilo[i] = new AutoResetEvent(false);
+
+            //lambda que va iterando en nuestros hilos, todo ello en base a nuestro boolean 
+            threads[i] = new Thread((object index) =>
+            {
+                int threadIndex = (int)index;
+                ThreadReadFile(passIN, threadIndex * step, (threadIndex + 1) * step, nuevoHilo[threadIndex]);
+            });
+
+            //iteramos y vamos iniciando nuestros hilos
+            threads[i].Start(i);
+        }
+        
+        return passEnc;
+    }
+
+    private void ThreadReadFile(string passIN, int start, int end, AutoResetEvent nuevoHilo)
+    {
+        using (StreamReader reader = new StreamReader(path))
+        {
+            for (int i = 0; i < start; i++) reader.ReadLine();
+
+            for (int i = start; i < end; i++)
+            {
+                if (encriptar(passIN) == encriptar(reader.ReadLine()))
+                {
+                    Console.WriteLine($"Password {passIN}");
+                    break;
+                }
+            }
         }
 
-        return passEnc;
+        nuevoHilo.Set();
     }
 
     private string encriptar(string passIN)
@@ -43,10 +73,7 @@ public class Archivo
 
             StringBuilder stringBuilder = new StringBuilder();
 
-            for (int i = 0; i < hashedBytes.Length; i++)
-            {
-                stringBuilder.Append(hashedBytes[i].ToString("x2"));
-            }
+            foreach (var item in hashedBytes) stringBuilder.Append(item.ToString("x2"));
 
             return stringBuilder.ToString();
         }
@@ -61,7 +88,7 @@ public class Archivo
         string contrEncrip = "";
 
         //Leemos el archivo linea a linea con StreamReader,
-        //y obtenemos la contraseña y la linea donde se encuentra.
+        //y obtenemos la contraseña
         Console.WriteLine(file.ObtPass(contrParaAdivinar));
     }
 }
